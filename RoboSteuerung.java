@@ -26,7 +26,10 @@ public class RoboSteuerung extends Thread
     {
         while(true)
         {
-            vorsichtigerSchritt();
+            if (!robo.IstWand())
+            {
+               vorsichtigerSchritt();
+            }
             robo.RechtsDrehen();
             robo.RechtsDrehen();
         }
@@ -34,7 +37,7 @@ public class RoboSteuerung extends Thread
     
     public void vorsichtigerSchritt()
     {
-        if(!robo.IstRoboter() && !robo.IstWand())
+        if(!robo.IstRoboter())
         {
             robo.Schritt();
         }
